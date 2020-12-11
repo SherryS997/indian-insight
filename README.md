@@ -1,3 +1,3 @@
 # indian_insight
 
-A blog by the author made from flutter
+A blog by the author built using flutter
