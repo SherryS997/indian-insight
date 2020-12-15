@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main_body.dart';
+import 'header.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,25 +36,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.yellow[50],
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.moon,
+            color: Colors.brown[900],
+            size: 20,
+          ),
+          autofocus: true,
+        ),
         elevation: 0,
         centerTitle: true,
         toolbarHeight: 80,
         toolbarOpacity: 1,
-        title: Center(
-          child: FittedBox(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                widget.title,
-                style: TextStyle(
-                    fontFamily: 'Chinzel',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.brown[900]),
-              ),
-            ),
-          ),
-        ),
+        title: Header(widget: widget),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
