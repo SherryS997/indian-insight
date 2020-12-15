@@ -1,4 +1,4 @@
-Indian Insight
+indian-insight
 
 A blog by the author built using flutter.
 
