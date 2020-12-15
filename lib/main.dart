@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main_body.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,72 +35,28 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.yellow[50],
       appBar: AppBar(
         elevation: 0,
-        bottom: PreferredSize(
+        centerTitle: true,
+        toolbarHeight: 80,
+        toolbarOpacity: 1,
+        title: Center(
           child: FittedBox(
-            child: Container(
-              width: 1000,
-              height: 2,
-              color: Colors.black,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    fontFamily: 'Chinzel',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                    color: Colors.brown[900]),
+              ),
             ),
           ),
-          preferredSize: Size.fromHeight(0),
-        ),
-        centerTitle: true,
-        toolbarHeight: 130,
-        toolbarOpacity: 1,
-        title: Column(
-          children: [
-            FittedBox(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  widget.title,
-                  style: TextStyle(
-                      fontFamily: 'Chinzel',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 50,
-                      color: Colors.brown[900]),
-                ),
-              ),
-            ),
-            FittedBox(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Text(
-                  "A Young Indian's Philosophical Perspective",
-                  style: TextStyle(
-                    fontFamily: 'Chomsky',
-                    fontSize: 20,
-                    color: Colors.brown[900],
-                    fontWeight: FontWeight.w100,
-                  ),
-                ),
-              ),
-            ),
-          ],
         ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Center(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Divider(
-                  height: 1.0,
-                  color: Colors.black,
-                ),
-                Divider(
-                  height: 30,
-                ),
-                Text(
-                  'jjjameson',
-                )
-              ],
-            ),
-          ),
-        ),
+        child: MainBody(),
       ),
     );
   }

@@ -1,3 +1,5 @@
-# indian_insight
+Indian Insight
 
-A blog by the author built using flutter
+A blog by the author built using flutter.
+
+Currently under development.
