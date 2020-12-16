@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animated_theme_switcher: ^1.0.9
   font_awesome_flutter: ^8.10.1
   flutter:
     sdk: flutter

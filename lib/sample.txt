@@ -1,0 +1,43 @@
+{% comment %} {% comment %} // ThemeSwitcher(
+//                     clipper: ThemeSwitcherCircleClipper(),
+//                     builder: (context) {
+//                       return OutlineButton(
+//                         child: Text('Circle Animation'),
+//                         onPressed: () {
+//                           ThemeSwitcher.of(context).changeTheme(
+//                             theme: ThemeProvider.of(context).brightness ==
+//                                     Brightness.light
+//                                 ? darkTheme
+//                                 : lightTheme,
+//                           );
+//                         },
+//                       );
+//                     },
+//                   )
+//                 ],
+//               ),
+
+//   IconButton(
+//             icon: _hasBeenPressed
+//                 ? Icon(
+//                     FontAwesomeIcons.sun,
+//                     color: Colors.brown[900],
+//                   )
+//                 : Icon(
+//                     FontAwesomeIcons.moon,
+//                     color: Colors.brown[900],
+//                   ),
+//             onPressed: () => {
+//               ThemeSwitcher.of(context).changeTheme(
+//                 theme: ThemeProvider.of(context).brightness == Brightness.light
+//                     ? darkTheme
+//                     : lightTheme,
+//               ),
+//               // setState(() {
+//               //   _hasBeenPressed = !_hasBeenPressed;
+//               // })
+//             },
+//             splashRadius: 20,
+//             // splashColor: Colors.brown[900],
+//             autofocus: true,
+//           ), {% endcomment %} {% endcomment %}
