@@ -1,53 +1,30 @@
 import 'package:flutter/material.dart';
-import 'main_body.dart';
-import 'header.dart';
+import 'package:indian_insight/ui/global/theme/bloc/theme_bloc.dart';
+import 'package:indian_insight/ui/global/theme/theme.dart';
+import 'ui/global/main_body.dart';
+import 'ui/global/header.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:theme_provider/theme_provider.dart';
-import 'package:flutter/scheduler.dart';
-import 'theme.dart';
+// import 'ui/global/theme/theme.dart';
+import 'ui/global/theme/bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-bool _hasBeenPressed = true;
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ThemeProvider(
-      saveThemesOnChange: true,
-      loadThemeOnInit: false,
-      onInitCallback: (controller, previouslySavedThemeFuture) async {
-        String savedTheme = await previouslySavedThemeFuture;
-        if (savedTheme != null) {
-          controller.setTheme(savedTheme);
-        } else {
-          Brightness platformBrightness =
-              SchedulerBinding.instance.window.platformBrightness;
-          if (platformBrightness == Brightness.dark) {
-            controller.setTheme('dark');
-            _hasBeenPressed = false;
-          } else {
-            controller.setTheme('light');
-            _hasBeenPressed = true;
-          }
-          controller.forgetSavedTheme();
-        }
-      },
-      themes: <AppTheme>[
-        AppTheme.light(id: 'light'),
-        AppTheme.dark(id: 'dark'),
-      ],
-      child: ThemeConsumer(
-        child: Builder(
-          builder: (themeContext) => MaterialApp(
-            theme: ThemeProvider.themeOf(themeContext).data,
-            title: 'The Indian Insight',
-            home: MyHomePage(title: 'the indian insight'),
-          ),
-        ),
-      ),
+    return BlocProvider(
+      create: (context) => ThemeBloc(),
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (BuildContext context, ThemeState state) {
+        return MaterialApp(
+          title: 'The Indian Insight',
+          theme: state.themeData,
+          home: MyHomePage(title: 'the indian insight'),
+        );
+      }),
     );
   }
 }
@@ -63,25 +40,49 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var controller = ThemeProvider.controllerOf(context);
     return Scaffold(
       // backgroundColor: Colors.yellow[50],
       appBar: AppBar(
-        leading: IconButton(
-          icon: _hasBeenPressed
-              ? Icon(
-                  FontAwesomeIcons.sun,
-                  // color: Colors.brown[900],
-                )
-              : Icon(
-                  FontAwesomeIcons.moon,
-                  // color: Colors.brown[900],
+        actions: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FittedBox(
+                child: IconButton(
+                  icon: Icon(
+                    FontAwesomeIcons.sun,
+                    // color: Colors.brown[900],
+                  ),
+                  onPressed: () {
+                    BlocProvider.of<ThemeBloc>(context)
+                        .add(ThemeChanged(theme: AppTheme.values[1]));
+                  },
+                  splashRadius: 20,
+                  // splashColor: Colors.brown[900],
+                  autofocus: true,
                 ),
-          onPressed: controller.nextTheme,
-          splashRadius: 20,
-          // splashColor: Colors.brown[900],
-          autofocus: true,
-        ),
+              ),
+              Divider(
+                thickness: 20,
+              ),
+              FittedBox(
+                child: IconButton(
+                  icon: Icon(
+                    FontAwesomeIcons.moon,
+                    // color: Colors.brown[900],
+                  ),
+                  onPressed: () {
+                    BlocProvider.of<ThemeBloc>(context)
+                        .add(ThemeChanged(theme: AppTheme.values[0]));
+                  },
+                  splashRadius: 20,
+                  // splashColor: Colors.brown[900],
+                  autofocus: true,
+                ),
+              ),
+            ],
+          ),
+        ],
         elevation: 0,
         centerTitle: true,
         toolbarHeight: 80,
