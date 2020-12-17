@@ -16,34 +16,32 @@ final appThemeData = {
       textTheme: TextTheme(
         headline6: TextStyle(
           fontFamily: 'Sacramento',
-          fontSize: 30,
+          fontSize: 40,
           color: Colors.brown[900],
-          fontWeight: FontWeight.bold,
           decoration: TextDecoration.underline,
           decorationStyle: TextDecorationStyle.wavy,
-          decorationThickness: 0.001,
+          decorationThickness: 0.1,
         ),
       ),
     ),
     scaffoldBackgroundColor: Colors.yellow[50],
   ),
   AppTheme.Dark: ThemeData(
-    primaryColor: Color.fromRGBO(0, 18, 45, 1),
-    accentColor: Color.fromRGBO(0, 18, 45, 1),
+    primaryColor: Color.fromRGBO(13, 17, 23, 1),
+    accentColor: Color.fromRGBO(13, 17, 23, 1),
     appBarTheme: AppBarTheme(
-      color: Color.fromRGBO(0, 18, 45, 1),
+      color: Color.fromRGBO(13, 17, 23, 1),
       textTheme: TextTheme(
         headline6: TextStyle(
           fontFamily: 'Sacramento',
-          fontSize: 30,
+          fontSize: 40,
           color: Colors.white70,
-          fontWeight: FontWeight.bold,
           decoration: TextDecoration.underline,
           decorationStyle: TextDecorationStyle.wavy,
-          decorationThickness: 0.001,
+          decorationThickness: 0.1,
         ),
       ),
     ),
-    scaffoldBackgroundColor: Color.fromRGBO(0, 18, 45, 1),
+    scaffoldBackgroundColor: Color.fromRGBO(13, 17, 23, 1),
   )
 };
