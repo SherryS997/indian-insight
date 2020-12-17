@@ -28,15 +28,15 @@ final appThemeData = {
     scaffoldBackgroundColor: Colors.yellow[50],
   ),
   AppTheme.Dark: ThemeData(
-    primaryColor: Color.fromRGBO(0, 18, 44, 1),
-    accentColor: Color.fromRGBO(0, 18, 44, 1),
+    primaryColor: Color.fromRGBO(0, 18, 45, 1),
+    accentColor: Color.fromRGBO(0, 18, 45, 1),
     appBarTheme: AppBarTheme(
-      color: Color.fromRGBO(0, 18, 44, 1),
+      color: Color.fromRGBO(0, 18, 45, 1),
       textTheme: TextTheme(
         headline6: TextStyle(
           fontFamily: 'Sacramento',
           fontSize: 30,
-          color: Colors.white,
+          color: Colors.white70,
           fontWeight: FontWeight.bold,
           decoration: TextDecoration.underline,
           decorationStyle: TextDecorationStyle.wavy,
@@ -44,6 +44,6 @@ final appThemeData = {
         ),
       ),
     ),
-    scaffoldBackgroundColor: Color.fromRGBO(0, 18, 44, 1),
+    scaffoldBackgroundColor: Color.fromRGBO(0, 18, 45, 1),
   )
 };
