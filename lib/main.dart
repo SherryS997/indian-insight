@@ -38,54 +38,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _isPressed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.yellow[50],
       appBar: AppBar(
         actions: <Widget>[
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              FittedBox(
-                child: IconButton(
-                  icon: Icon(
+          IconButton(
+            icon: _isPressed
+                ? Icon(
+                    FontAwesomeIcons.moon,
+                    // color: Colors.brown[900],
+                  )
+                : Icon(
                     FontAwesomeIcons.sun,
                     // color: Colors.brown[900],
                   ),
-                  onPressed: () {
-                    BlocProvider.of<ThemeBloc>(context)
-                        .add(ThemeChanged(theme: AppTheme.values[1]));
-                  },
-                  splashRadius: 20,
-                  // splashColor: Colors.brown[900],
-                  autofocus: true,
-                ),
-              ),
-              Divider(
-                thickness: 20,
-              ),
-              FittedBox(
-                child: IconButton(
-                  icon: Icon(
-                    FontAwesomeIcons.moon,
-                    // color: Colors.brown[900],
-                  ),
-                  onPressed: () {
-                    BlocProvider.of<ThemeBloc>(context)
-                        .add(ThemeChanged(theme: AppTheme.values[0]));
-                  },
-                  splashRadius: 20,
-                  // splashColor: Colors.brown[900],
-                  autofocus: true,
-                ),
-              ),
-            ],
+            onPressed: () {
+              BlocProvider.of<ThemeBloc>(context).add(
+                  ThemeChanged(theme: AppTheme.values[_isPressed ? 1 : 0]));
+              setState(() {
+                if (_isPressed == false) {
+                  _isPressed = true;
+                } else {
+                  _isPressed = false;
+                }
+              });
+            },
+            iconSize: 20,
+            splashRadius: 20,
+            // splashColor: Colors.brown[900],
+            autofocus: true,
           ),
         ],
         elevation: 0,
         centerTitle: true,
-        toolbarHeight: 80,
+        toolbarHeight: 70,
         toolbarOpacity: 1,
         title: Header(widget: widget),
       ),

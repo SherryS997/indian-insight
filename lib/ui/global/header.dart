@@ -16,11 +16,6 @@ class Header extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Text(
           widget.title,
-          style: TextStyle(
-              fontFamily: 'Sacramento',
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-              color: Colors.brown[900]),
         ),
       ),
     );
