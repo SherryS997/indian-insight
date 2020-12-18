@@ -21,6 +21,7 @@ final appThemeData = {
           decoration: TextDecoration.underline,
           decorationStyle: TextDecorationStyle.wavy,
           decorationThickness: 0.1,
+          decorationColor: Colors.brown[900],
         ),
       ),
     ),

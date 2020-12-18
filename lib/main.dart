@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:indian_insight/ui/global/theme/bloc/theme_bloc.dart';
 import 'package:indian_insight/ui/global/theme/theme.dart';
 import 'ui/global/main_body.dart';
-import 'ui/global/header.dart';
+// import 'ui/global/header.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'ui/global/theme/theme.dart';
+import 'ui/global/theme/theme.dart';
 import 'ui/global/theme/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,6 +39,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _isPressed = false;
+  // final _darkImg = Image.asset('assets/pics/landscape-1844231_1280.png');
+  // final _lightImg = Image.asset('assets/pics/landscape-1844229_1280.png');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,9 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
               });
             },
-            iconSize: 20,
-            splashRadius: 20,
-            // splashColor: Colors.brown[900],
+            iconSize: 15,
+            splashRadius: 15,
             autofocus: true,
           ),
         ],
@@ -75,7 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         toolbarHeight: 70,
         toolbarOpacity: 1,
-        title: Header(widget: widget),
+        title: FittedBox(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              widget.title,
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
