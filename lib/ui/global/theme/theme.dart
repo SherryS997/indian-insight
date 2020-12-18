@@ -26,6 +26,13 @@ final appThemeData = {
       ),
     ),
     scaffoldBackgroundColor: Colors.yellow[50],
+    fontFamily: 'Crimson',
+    textTheme: TextTheme(
+      bodyText2: TextStyle(
+        fontSize: 18,
+        color: Colors.brown[900],
+      ),
+    ),
   ),
   AppTheme.Dark: ThemeData(
     primaryColor: Color.fromRGBO(13, 17, 23, 1),
@@ -44,5 +51,12 @@ final appThemeData = {
       ),
     ),
     scaffoldBackgroundColor: Color.fromRGBO(13, 17, 23, 1),
+    fontFamily: 'Crimson',
+    textTheme: TextTheme(
+      bodyText2: TextStyle(
+        fontSize: 18,
+        color: Colors.white70,
+      ),
+    ),
   )
 };

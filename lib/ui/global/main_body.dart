@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'theme/theme.dart';
 
 class MainBody extends StatefulWidget {
   const MainBody({
@@ -19,6 +20,7 @@ class _MainBodyState extends State<MainBody> {
           children: [
             Text(
               'jjjameson',
+              // style: AppTheme,
             )
           ],
         ),
