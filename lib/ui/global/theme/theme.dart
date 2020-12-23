@@ -18,7 +18,7 @@ final appThemeData = {
           fontFamily: 'Sacramento',
           fontSize: 40,
           color: Colors.brown[900],
-          decoration: TextDecoration.underline,
+          // decoration: TextDecoration.underline,
           decorationStyle: TextDecorationStyle.wavy,
           decorationThickness: 0.1,
           decorationColor: Colors.brown[900],
